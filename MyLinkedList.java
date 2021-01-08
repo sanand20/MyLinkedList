@@ -50,5 +50,34 @@ public class MyLinkedList{
          throw new IndexOutOfBoundsException();
      }
  };
+ public String get(int index){
+   if(index < 0 || index >= size)
+       throw new IndexOutOfBoundsException();
+    Node current = start;
+    for(int i = 0; i < index; ++i) {
+        current = current.getNext();
+    }
+    return current.getData();
+ }
+ private Node getNode(int index){
+   if(index < 0 || index >= size)
+       throw new IndexOutOfBoundsException();
+    Node current = start;
+    for(int i = 0; i < index; i++) {
+        current = current.getNext();
+    }
+    return current;
+ }
+
+ public String set(int index, String value){
+   if(index < 0 || index >= size) {
+       throw new IndexOutOfBoundsException("out of bounds");
+   }
+   Node current = getNode(index);
+   String ans = current.getData();
+   current.setData(value);
+   return ans;
+ }
+
  
 }
