@@ -6,14 +6,20 @@ private Node next,prev;
 public Node(String value){
  data = value;
   }
-public String get() {
+public String getData() {
   return data;
 }
 
-public void set(String data){
+public void setData(String data){
   this.data = data;
 }
 
+public Node getNext(){
+  return next;
+}
+public Node getPrev(){
+  return prev;
+}
 
 //write get/set methods for all three instance variables.
 }
