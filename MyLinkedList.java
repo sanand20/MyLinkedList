@@ -80,23 +80,31 @@ public class MyLinkedList{
  }
 
  public String remove(int index){
-   if(index < 0 || index >= size || size == 0) {
+    String ans = get(index);
+    if(index < 0 || index >= size ) {
        throw new IndexOutOfBoundsException("out of bounds");
    }
-   String ans = get(index);
-    if (size == 1 ){
+
+   else if (size == 1 ){
      start = null;
      end = null;
-     size =0;
+     size--;;
    }
+
    else if (index == 0){
-     start = start.getNext();
-     start.getNext().setPrev(start);
+     if (size == 2){
+       start = end;
+     }
+     else{start = start.getNext();
+     start.getNext().setPrev(start);}
      size--;
    }
    else if (index==size-1){
-     end = end.getPrev();
-     end.getPrev().setNext(end);
+     if (size == 2){
+       end = start;
+     }
+     else{end = end.getPrev();
+     end.getPrev().setNext(end);}
      size--;
    }
    else {
@@ -110,6 +118,8 @@ public class MyLinkedList{
    }
    return ans;
  }
+
+ 
  public String toString(){
  String ans = "[";
  Node current = start;
