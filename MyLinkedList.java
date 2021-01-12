@@ -119,7 +119,24 @@ public class MyLinkedList{
    return ans;
  }
 
- 
+ public void extend (MyLinkedList other){
+   if (this.size == 0 || other.size == 0){
+     if (this.size == 0){
+       this.start = other.start;
+       this.end = other.end;
+     }
+   }
+   else {
+       this.end.setNext(other.start);
+       other.start.setPrev(end);
+       this.end = other.end;
+       size += other.size;
+       }
+       while(other.size>0){
+         other.remove(0);
+       }
+       other.size=0;
+ }
  public String toString(){
  String ans = "[";
  Node current = start;
